@@ -10,6 +10,7 @@ import CoreData
 struct PersistenceController {
     static let shared = PersistenceController()
 
+    // Controls our sample preview database
     @MainActor
     static let preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
@@ -29,6 +30,7 @@ struct PersistenceController {
         return result
     }()
 
+    // The database
     let container: NSPersistentContainer
 
     init(inMemory: Bool = false) {
